@@ -1,17 +1,6 @@
 <?php
 // phpinfo();
-require 'router.php';
 require 'functions.php';
 require 'Database.php';
 $config = require 'config.php';
-
-// $db = new Database($config['database']);
-
-// $id = $_GET['id'];
-// $query = "SELECT * FROM posts WHERE id = :id";
-
-// $posts = $db->query($query, ['id' => $id])->fetchAll();
-
-// foreach ($posts as $key => $value) {
-//     echo "<li>" . $value['title'] . "</li>";
-// }
+require 'router.php';
