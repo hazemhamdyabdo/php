@@ -9,7 +9,7 @@
 
       <?php foreach ($notes as $note): ?>
         <div class="bg-white shadow-md rounded px-8 py-6 mt-4">
-          <a href="/note?id=<?= $note['id'] ?>" class="text-2xl font-bold mb-2"><?= $note['body'] ?></a>
+          <a href="/note?id=<?= $note['id'] ?>" class="text-2xl font-bold mb-2"><?= htmlspecialchars($note['body']) ?></a>
         </div>
       <?php endforeach; ?>
 
