@@ -1,4 +1,7 @@
 <?php 
+
+require '../Validator.php';
+
 $header =  'Create Note';
 $db = new Database($config['database']);
 $errors = [];
@@ -8,15 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     
 
-    if (strlen($payload) === 0) {
-        $errors['body'] = 'Body is required';
-    } else if (!is_string($payload)) {
-        $errors['body'] = 'Body must be a string';
-    }else if (strlen($payload) < 10) {
-        $errors['body'] = 'Body must be at least 10 characters long';
-    } else if (strlen($payload) > 255) {
-        $errors['body'] = 'Body must be at most 255 characters long';
-    }
+    if (!Validator::validate($payload,10,255)) {
+        $errors['body'] = 'Body is required to be min 10 and max 255 characters';
+    }   
     
     if (empty($errors)) {
         $db->query("INSERT INTO notes (body,user_id) VALUES (:body,:user_id)", [
