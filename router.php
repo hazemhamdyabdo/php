@@ -10,4 +10,4 @@ $routes = [
     
 ];  
 
-require $routes[$uri] ?? '404.php';
+require $routes[$uri] ?? abort(404);
