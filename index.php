@@ -1,34 +1,13 @@
 <?php
-require 'functions.php';
-
+// phpinfo();
 // require 'router.php';
+require 'functions.php';
+require 'Database.php';
 
 
-// connect to database
+$db = new Database();
+$posts = $db->query("SELECT * FROM posts")->fetchAll(PDO::FETCH_ASSOC);
 
-$dsn = "mysql:host=localhost;dbname=myapp;charset=utf8mb4;port=3306";
-
-$pdo = new PDO($dsn, 'root', '1234');
- 
-$statement= $pdo->prepare("SELECT * FROM posts");
-$statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-dd($result);
-
-
-class Person {
-    public $name;
-    public $age;
-
-   public function breathe(){
-    echo  $this->name .  ' is breathing';
-
-    
-   }
+foreach ($posts as $key => $value) {
+    echo "<li>" . $value['title'] . "</li>";
 }
-
-$person = new Person();
-$person->name = 'Hazem';
-$person->age = '25';
-$person->breathe();
