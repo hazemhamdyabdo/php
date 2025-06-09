@@ -3,16 +3,16 @@
 class Database
 {
     public $connection;
-    public function __construct()
+    public function __construct($config,$userName='root',$password='1234')
     {
-        $dsn = "mysql:host=localhost;dbname=myapp;charset=utf8mb4;port=3306";
+        $dsn = "mysql:" . http_build_query($config,"",";");
 
-        $this->connection = new PDO($dsn, 'root', '1234');
+        $this->connection = new PDO($dsn, $userName, $password);
     }
-    public function query(string $query)
+    public function query(string $query,$params=[])
     {
         $statement = $this->connection->prepare($query);
-        $statement->execute();
+        $statement->execute($params);
         return $statement;
     }
 }

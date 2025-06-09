@@ -1,13 +1,17 @@
 <?php
 // phpinfo();
-// require 'router.php';
+require 'router.php';
 require 'functions.php';
 require 'Database.php';
+$config = require 'config.php';
 
+// $db = new Database($config['database']);
 
-$db = new Database();
-$posts = $db->query("SELECT * FROM posts")->fetchAll(PDO::FETCH_ASSOC);
+// $id = $_GET['id'];
+// $query = "SELECT * FROM posts WHERE id = :id";
 
-foreach ($posts as $key => $value) {
-    echo "<li>" . $value['title'] . "</li>";
-}
+// $posts = $db->query($query, ['id' => $id])->fetchAll();
+
+// foreach ($posts as $key => $value) {
+//     echo "<li>" . $value['title'] . "</li>";
+// }
