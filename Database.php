@@ -26,7 +26,8 @@ class Database
     }
 
     public function getAll(){
-        return $this->statement->fetchAll();
+        $result = $this->statement->fetchAll();
+        return $result ? $result : [];
     }
 }
 
