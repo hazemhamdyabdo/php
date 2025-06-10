@@ -1,4 +1,7 @@
 <?php
+
+use Core\Database;
+
 $config = require base_path('config.php');
 $header =  'note';
 $currentUserId = 1; // $_SESSION['id']

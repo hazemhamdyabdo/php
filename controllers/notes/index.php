@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 $header =  'notes';
 
 $db = new Database($config['database']);

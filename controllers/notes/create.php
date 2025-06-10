@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 require base_path('core/Validator.php');
 
 $header =  'Create Note';
