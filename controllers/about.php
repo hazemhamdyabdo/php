@@ -1,4 +1,4 @@
-<?php 
+<?php
 $header =  'about';
 
-require 'views/about.view.php';
+require view('about.view.php');

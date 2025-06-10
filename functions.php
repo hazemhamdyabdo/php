@@ -1,15 +1,15 @@
-<?php 
+<?php
 
-
-const BASE_PATH = __DIR__.'/../';
-function dd(...$args){
+function dd(...$args)
+{
     echo '<pre> ';
     var_dump($args);
     echo '</pre>';
     die();
 }
 
-function usrIf($value){
+function usrIf($value)
+{
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
@@ -24,16 +24,22 @@ function abort($code = 404)
     die();
 }
 
-function authorize($condition,$code = Response::FORBIDDEN){
+function authorize($condition, $code = Response::FORBIDDEN)
+{
     if (!$condition) {
         abort($code);
     }
 }
-    
+
 
 
 
 function base_path($path)
 {
     return BASE_PATH . $path;
+}
+
+function view($path)
+{
+    return base_path("/views/{$path}");
 }

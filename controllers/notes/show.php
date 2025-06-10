@@ -1,4 +1,5 @@
-<?php 
+<?php
+$config = require base_path('config.php');
 $header =  'note';
 $currentUserId = 1; // $_SESSION['id']
 
@@ -11,5 +12,4 @@ $note = $db->query($query, ['id' => $_GET['id']])->findAndFail();
 
 authorize($note['user_id'] === $currentUserId);
 
-require 'views/notes/show.view.php';
-
+require view('notes/show.view.php');
